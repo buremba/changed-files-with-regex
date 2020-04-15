@@ -1,0 +1,26 @@
+name: 'Changed Files Exporter with Regex'
+description: 'Exports the files created, modified or deleted by a PR'
+author: 'Duarte Nunes <duarte.m.nunes@gmail.com> Burak Emre Kabakci <emrekabakci@gmail.com>'
+inputs:
+  repo-token:
+    description: 'The GITHUB_TOKEN secret'
+    required: true
+  pattern:
+    description: 'A regular expression to filter the outputs by.'
+    required: false
+    default: '.*'
+outputs:
+  files_created:
+    description: 'The names of the newly created files'
+  files_updated:
+    description: 'The names of the updated files'
+  files_deleted:
+    description: 'The names of the deleted files'
+  files_renamed:
+    description: 'The names of the deleted files'
+runs:
+  using: 'node12'
+  main: 'lib/index.js'
+branding:
+  icon: 'wind'
+  color: 'green'
